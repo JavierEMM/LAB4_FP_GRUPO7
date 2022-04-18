@@ -23,7 +23,7 @@ public class SearchController {
 
     @PostMapping("/busqueda")
     public String buscar (){
-
+        return "/Search/salario";
         //COMPLETAR
     }
 
