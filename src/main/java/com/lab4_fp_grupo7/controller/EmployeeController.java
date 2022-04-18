@@ -101,10 +101,14 @@ public class EmployeeController {
     }
 
     @PostMapping("/search")
-    public String buscar (){
-
-
-        return "redirect:/employee";
+    public String buscar (Model model,@RequestParam("searchField") Optional<String> search){
+        if(search.isPresent()){
+            model.addAttribute("listaEmployee", employeesRepository.buscadorEmployee(search.get()));
+        }else{
+            model.addAttribute("listaEmployee", employeesRepository.findAll());
+        }
+        model.addAttribute("listaJobs", jobsRepository.findAll());
+        model.addAttribute("listaDepartments", departmentsRepository.findAll());
+        return "employee/lista";
     }
-
 }

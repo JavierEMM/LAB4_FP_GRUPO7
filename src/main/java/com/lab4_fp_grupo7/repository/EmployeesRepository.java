@@ -12,6 +12,6 @@ import java.util.List;
 public interface EmployeesRepository extends JpaRepository<Employees,Integer> {
     @Query(value = "select * from employees order by salary desc", nativeQuery = true)
     List<Employees> obtenerEmpleadosMayorSueldo();
-
-
+    @Query(nativeQuery = true, value = "SELECT e.* FROM employees e INNER JOIN jobs j  ON j.job_id = e.job_id WHERE e.first_name LIKE %?1%")
+    List<Employees> buscadorEmployee(String buscar);
 }

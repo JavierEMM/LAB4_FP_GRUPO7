@@ -40,6 +40,7 @@ public class Employees {
     @JoinColumn(name = "job_id", nullable = false)
     private Jobs job;
 
+
     @Digits(integer = 100,fraction = 5)
     @Positive
     @Column(name = "salary", precision = 8, scale = 2)
