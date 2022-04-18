@@ -36,7 +36,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Contraseña</label>
-                            <input type="text" class="form-control" th:field="*{password}" th:classappend="${#fields.hasErrors('password')?'is-invalid':''}" />
+                            <input type="text" class="form-control" th:field="*{password}"  th:classappend="${#fields.hasErrors('password')?'is-invalid':''}" />
                             <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}"
                                  th:errors="*{password}"></div>
                         </div>
