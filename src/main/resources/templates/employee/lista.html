@@ -16,6 +16,7 @@
             <input name="searchField" class="form-control mb-3" type="text" placeholder="Search"/>
         </form>
         </form>
+        <div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
              <table class="table">
                 <thead>
                 <tr>
