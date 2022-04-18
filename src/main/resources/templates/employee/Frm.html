@@ -3,6 +3,7 @@
     <head th:replace="fragments/navbar.html :: header( title = 'Empleados')"></head>
     <body>
         <div class="container">
+            <nav th:replace="fragments/navbar.html :: navbar( active = 'Employee')"></nav>
             <div class="row mb-4">
                 <div class="col-md-6 offset-md-3">
                     <h2>Editar Empleado</h2>
@@ -18,60 +19,18 @@
                             <input type="text" class="form-control" th:field="*{lastname}"/>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Título</label>
-                            <input type="text" class="form-control" th:field="*{title}"/>
+                            <label class="form-label">Correo Electrónico</label>
+                            <input type="text" class="form-control" th:field="*{email}"/>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Título de cortesía</label>
-                            <input type="text" class="form-control" placeholder="Mr. Ms. Dr. etc"
-                                   th:field="*{titleofcourtesy}"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Fecha de nacimiento</label>
-                            <input type="text" class="form-control" name="birthdateStr" placeholder="dd-MM-yyyy"
-                                   th:value="${#dates.format(employee.birthdate, 'dd-MM-yyyy')}"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Fecha de ingreso</label>
-                            <input type="text" class="form-control" name="hiredateStr" placeholder="dd-MM-yyyy"
-                                   th:value="${#dates.format(employee.hiredate, 'dd-MM-yyyy')}"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Dirección</label>
-                            <input type="text" class="form-control" th:field="*{address}"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" th:field="*{city}"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Región</label>
-                            <input type="text" class="form-control" th:field="*{region}"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Código postal</label>
-                            <input type="text" class="form-control" th:field="*{postalcode}"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Pais</label>
-                            <input type="text" class="form-control" th:field="*{country}"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" th:field="*{homephone}"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Anexo</label>
-                            <input type="text" class="form-control" th:field="*{extension}"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Notas</label>
-                            <input type="text" class="form-control" th:field="*{notes}"/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Salario</label>
+                            <label class="form-label">Sueldo</label>
                             <input type="number" class="form-control" th:field="*{salary}"/>
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" th:field="*{password}"/>
+                        </div>
+
                         <div class="mb-3">
                             <label class="form-label">Jefe</label>
                             <select class="form-select" name="manager" id="manager">
@@ -81,6 +40,24 @@
                                         th:value="${jefe.id}"></option>
                             </select>
                         </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Cargo</label>
+                            <select class="form-select" name="job" id="job">
+                                <option th:each="job : ${listaJobs}"
+                                        th:text="${job.jobtitle} "
+                                        th:value="${job.jobid}"></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Departamento</label>
+                            <select class="form-select" name="department" id="department">
+                                <option th:each="department : ${listaDepartments}"
+                                        th:text="${department.departmentname} "
+                                        th:value="${department.id}"></option>
+                            </select>
+                        </div>
+
                         <a th:href="@{'/employee'}" class="btn btn-danger">Cancelar</a>
                         <button type="submit" class="btn btn-primary">Actualizar</button>
                     </form>

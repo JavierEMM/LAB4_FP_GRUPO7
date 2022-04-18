@@ -1,6 +1,7 @@
 package com.lab4_fp_grupo7.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.time.Instant;
@@ -14,15 +15,16 @@ public class Employees {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="employee_id")
     private Integer employeeId;
+    @NotBlank
     @Column(name = "first_name", length = 20)
     private String firstName;
-
+    @NotBlank
     @Column(name = "last_name", nullable = false, length = 25)
     private String lastName;
-
+    @NotBlank
     @Column(name = "email", nullable = false, length = 25)
     private String email;
-
+    @NotBlank
     @Column(name = "password", length = 65)
     private String password;
 
@@ -35,7 +37,7 @@ public class Employees {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "job_id", nullable = false)
     private Jobs job;
-
+    @NotBlank
     @Column(name = "salary", precision = 8, scale = 2)
     private BigDecimal salary;
 

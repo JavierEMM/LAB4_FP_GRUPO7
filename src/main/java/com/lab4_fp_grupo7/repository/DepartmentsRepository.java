@@ -1,6 +1,5 @@
 package com.lab4_fp_grupo7.repository;
 
-
 import com.lab4_fp_grupo7.entity.Departments;
 import org.springframework.data.jpa.repository.JpaRepository;
 
