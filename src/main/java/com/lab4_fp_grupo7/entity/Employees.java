@@ -14,7 +14,7 @@ public class Employees {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="employee_id")
-    private Integer employeeId;
+    private Integer employeeId =0;
     @NotBlank
     @Column(name = "first_name", length = 20)
     private String firstName;
@@ -37,9 +37,9 @@ public class Employees {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "job_id", nullable = false)
     private Jobs job;
-    @NotBlank
+
     @Column(name = "salary", precision = 8, scale = 2)
-    private BigDecimal salary;
+    private BigDecimal salary= new BigDecimal(0) ;
 
     @Column(name = "commission_pct", precision = 2, scale = 2)
     private BigDecimal commissionPct;

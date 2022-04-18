@@ -39,7 +39,10 @@ public class EmployeeController {
     }
 
     @GetMapping("/new")
-    public String nuevoEmployeeForm(@ModelAttribute("employees") Employees employees) {
+    public String nuevoEmployeeForm(@ModelAttribute("employees") Employees employees,Model model) {
+        model.addAttribute("listaJobs", jobsRepository.findAll());
+        model.addAttribute("listaJefes", employeesRepository.findAll());
+        model.addAttribute("listaDepartments", departmentsRepository.findAll());
         return "employee/Frm";
     }
 
@@ -77,6 +80,7 @@ public class EmployeeController {
 
     @GetMapping("/edit")
     public String editarEmployee(@ModelAttribute("employees") @Valid Employees employees) {
+
         return "employee/Frm";
     }
 
