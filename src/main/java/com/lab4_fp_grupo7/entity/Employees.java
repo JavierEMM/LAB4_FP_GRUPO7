@@ -1,7 +1,9 @@
 package com.lab4_fp_grupo7.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.time.Instant;
@@ -38,6 +40,8 @@ public class Employees {
     @JoinColumn(name = "job_id", nullable = false)
     private Jobs job;
     @NotBlank
+    @Digits(integer = 100,fraction = 5)
+    @Positive
     @Column(name = "salary", precision = 8, scale = 2)
     private BigDecimal salary;
 

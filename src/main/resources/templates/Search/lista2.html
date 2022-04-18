@@ -15,9 +15,25 @@
     <table class="table">
         <thead>
         <!-- COMPLETAR -->
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha de inicio</th>
+                <th>Fecha de nacimiento</th>
+                <th>Puesto</th>
+                <th></th>
+            </tr>
         </thead>
         <tbody>
         <!-- COMPLETAR -->
+
+            <tr th:each="employee : ${listaEmpleadosMayorSueldo}">
+                <td th:text="${employee.firstname}"></td>
+                <td th:text="${employee.lastname}"></td>
+                <td th:text="${employee.hiredate}"></td>
+                <td th:text="${employee.birthdate}"></td>
+                <td th:text="${employee.title}"></td>
+            </tr>
         </tbody>
     </table>
 </div>
