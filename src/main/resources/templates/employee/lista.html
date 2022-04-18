@@ -12,10 +12,11 @@
     <div class="container">
         <h1>Lista de Empleados</h1>
         <a class="btn btn-primary mt-4 mb-4" th:href="@{/employee/new}">Nuevo Empleado</a>  <!-- COMPLETAR -->
-        <!-- COMPLETAR -->
+        <form method="post" th:action="@{/employee/search}">
+            <input name="searchField" class="form-control mb-3" type="text" placeholder="Search"/>
         </form>
-        <!-- COMPLETAR -->
-             <table class="table">  <!-- COMPLETAR -->
+        </form>
+             <table class="table">
                 <thead>
                 <tr>
                     <th>#</th>

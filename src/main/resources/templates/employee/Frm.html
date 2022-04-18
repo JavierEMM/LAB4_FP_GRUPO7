@@ -8,15 +8,15 @@
                 <div class="col-md-6 offset-md-3">
                     <h2>Editar Empleado</h2>
                     <hr/>
-                    <form th:action="@{'/employee/save'}" method="post" th:object="${employee}">
-                        <input th:field="*{id}" type="hidden"/>
+                    <form th:action="@{'/employee/save'}" method="post" th:object="${employees}">
+                        <input th:field="*{employeeId}" type="hidden"/>
                         <div class="mb-3">
                             <label class="form-label">Nombre</label>
-                            <input type="text" class="form-control" th:field="*{firstname}"/>
+                            <input type="text" class="form-control" th:field="*{firstName}"/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Apellido</label>
-                            <input type="text" class="form-control" th:field="*{lastname}"/>
+                            <input type="text" class="form-control" th:field="*{lastName}"/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Correo Electrónico</label>
@@ -35,9 +35,9 @@
                             <label class="form-label">Jefe</label>
                             <select class="form-select" name="manager" id="manager">
                                 <option th:each="jefe : ${listaJefes}"
-                                        th:selected="${employee.manager != null and (jefe.id == employee.manager.id)}"
-                                        th:text="|${jefe.firstname} ${jefe.lastname==null?'':jefe.lastname}|"
-                                        th:value="${jefe.id}"></option>
+                                        th:selected="${employees.manager != null and (jefe.employeeId == employees.manager.employeeId)}"
+                                        th:text="|${jefe.firstName} ${jefe.lastName==null?'':jefe.lastName}|"
+                                        th:value="${jefe.employeeId}"></option>
                             </select>
                         </div>
 

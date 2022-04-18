@@ -98,7 +98,7 @@ public class EmployeeController {
     @PostMapping("/search")
     public String buscar (){
 
-        //COMPLETAR
+
         return "redirect:/employee";
     }
 
