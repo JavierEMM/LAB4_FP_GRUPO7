@@ -1,5 +1,6 @@
 package com.lab4_fp_grupo7.controller;
 
+import com.lab4_fp_grupo7.entity.Employees;
 import com.lab4_fp_grupo7.repository.DepartmentsRepository;
 import com.lab4_fp_grupo7.repository.EmployeesRepository;
 import com.lab4_fp_grupo7.repository.JobsRepository;
@@ -14,6 +15,7 @@ import javax.validation.Valid;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/employee")
@@ -54,15 +56,15 @@ public class EmployeeController {
             return "employee/Frm";
         }else {
 
-            if (employees.getEmployeeid() == 0) {
+            if (employees.getEmployeeId() == 0) {
                 attr.addFlashAttribute("msg", "Empleado creado exitosamente");
-                employees.setHiredate(new Date());
+                employees.setHireDate(new Date());
                 employeesRepository.save(employees);
                 return "redirect:/employee";
             } else {
 
                 try {
-                    employees.setHiredate(new SimpleDateFormat("yyyy-MM-dd").parse(fechaContrato));
+                    employees.setHireDate(new SimpleDateFormat("yyyy-MM-dd").parse(fechaContrato));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
