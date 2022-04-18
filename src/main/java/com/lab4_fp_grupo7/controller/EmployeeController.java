@@ -39,8 +39,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/new")
-    public String nuevoEmployeeForm() {
-        //COMPLETAR
+    public String nuevoEmployeeForm(@ModelAttribute("employees") Employees employees) {
         return "employee/Frm";
     }
 
@@ -77,9 +76,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/edit")
-    public String editarEmployee() {
-
-        //COMPLETAR
+    public String editarEmployee(@ModelAttribute("employees") @Valid Employees employees) {
+        return "employee/Frm";
     }
 
     @GetMapping("/delete")
@@ -101,6 +99,7 @@ public class EmployeeController {
     public String buscar (){
 
         //COMPLETAR
+        return "redirect:/employee";
     }
 
 }
