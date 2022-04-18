@@ -16,7 +16,7 @@ public class Employees {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="employee_id")
-    private Integer employeeId;
+    private Integer employeeId=0;
     @NotBlank
     @Column(name = "first_name", length = 20)
     private String firstName;
@@ -39,7 +39,7 @@ public class Employees {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "job_id", nullable = false)
     private Jobs job;
-    @NotBlank
+
     @Digits(integer = 100,fraction = 5)
     @Positive
     @Column(name = "salary", precision = 8, scale = 2)
