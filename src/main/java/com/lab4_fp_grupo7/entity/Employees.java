@@ -7,5 +7,7 @@ import javax.persistence.*;
 @Table(name="employees")
 public class Employees {
 
-    //COMPLETAR
+
+
+
 }
