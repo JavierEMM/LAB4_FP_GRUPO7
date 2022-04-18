@@ -1,9 +1,7 @@
 package com.lab4_fp_grupo7.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.time.Instant;
@@ -17,16 +15,18 @@ public class Employees {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="employee_id")
     private Integer employeeId=0;
-    @NotBlank
+    @NotBlank(message = "No puede ser vacío")
+    @Size(max = 20,message = "El nombre no puede tener más de 20 caracteres")
     @Column(name = "first_name", length = 20)
     private String firstName;
-    @NotBlank
+    @NotBlank(message = "No puede ser vacío")
     @Column(name = "last_name", nullable = false, length = 25)
     private String lastName;
-    @NotBlank
+    @NotBlank(message = "No puede ser vacío")
     @Column(name = "email", nullable = false, length = 25)
     private String email;
-    @NotBlank
+    @NotBlank(message = "No puede ser vacío o blanco")
+    @Size(min = 8,max = 65,message = "Debe tener un mínimo de 8 caracteres")
     @Column(name = "password", length = 65)
     private String password;
 
@@ -44,7 +44,7 @@ public class Employees {
     @Digits(integer = 100,fraction = 5)
     @Positive
     @Column(name = "salary", precision = 8, scale = 2)
-    private BigDecimal salary= new BigDecimal(0) ;
+    private BigDecimal salary ;
 
     @Column(name = "commission_pct", precision = 2, scale = 2)
     private BigDecimal commissionPct;

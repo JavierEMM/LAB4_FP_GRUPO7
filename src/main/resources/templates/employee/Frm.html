@@ -6,7 +6,7 @@
             <nav th:replace="fragments/navbar.html :: navbar( active = 'Employee')"></nav>
             <div class="row mb-4">
                 <div class="col-md-6 offset-md-3">
-                    <h2>Registrar Empleado</h2>
+                    <h2 th:text="${titulo}">Registrar Empleado</h2>
                     <hr/>
                     <form th:action="@{'/employee/save'}" method="post" th:object="${employees}">
                         <input th:field="*{employeeId}" type="hidden"/>

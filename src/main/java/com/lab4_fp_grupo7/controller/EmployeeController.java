@@ -44,6 +44,7 @@ public class EmployeeController {
         model.addAttribute("listaJobs", jobsRepository.findAll());
         model.addAttribute("listaJefes", employeesRepository.findAll());
         model.addAttribute("listaDepartments", departmentsRepository.findAll());
+        model.addAttribute("titulo","Registrar Empleado");
         return "employee/Frm";
     }
 
@@ -56,6 +57,7 @@ public class EmployeeController {
             model.addAttribute("listaJobs", jobsRepository.findAll());
             model.addAttribute("listaJefes", employeesRepository.findAll());
             model.addAttribute("listaDepartments", departmentsRepository.findAll());
+            model.addAttribute("titulo","Registrar Empleado");
             return "employee/Frm";
         }else {
 
@@ -80,9 +82,21 @@ public class EmployeeController {
     }
 
     @GetMapping("/edit")
-    public String editarEmployee(@ModelAttribute("employees") @Valid Employees employees) {
-
-        return "employee/Frm";
+    public String editarEmployee(@ModelAttribute("employees") @Valid Employees employees,BindingResult bindingResult,Model model,@RequestParam("id") Integer id) {
+        Optional<Employees> optional = employeesRepository.findById(id);
+        System.out.println("id  :" + id);
+        if (optional.isPresent()) {
+            System.out.println("esta presente");
+            employees= optional.get();
+            model.addAttribute("employees",employees);
+            model.addAttribute("listaJobs", jobsRepository.findAll());
+            model.addAttribute("listaJefes", employeesRepository.findAll());
+            model.addAttribute("listaDepartments", departmentsRepository.findAll());
+            model.addAttribute("titulo","Editar Empleado");
+            return "employee/Frm";
+        } else {
+            return "redirect:/employee";
+        }
     }
 
     @GetMapping("/delete")
