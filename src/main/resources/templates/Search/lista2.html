@@ -11,7 +11,23 @@
 <body>
 <div class="container">
     <h1>Empleados con Mayor Salario en la Empresa</h1>
-    <!-- COMPLETAR -->
+    <form method="post" th:action="@{/search/busqueda}">
+    <div class="row">
+        <div class="col-xl-9">
+                <input name="searchField" class="form-control mb-3" type="text" placeholder="Search" th:classappend="${ msg != null ?'is-invalid':''}"/>
+                <div class="invalid-feedback" th:if="${msg!=null}" th:text="${msg}"></div>
+        </div>
+        <div class="col-1">
+            <button type="submit" class="btn btn-outline-primary">Buscar</button>
+        </div>
+        <div class="col-1">
+            <a th:href="@{/search/salario}" class="btn btn-outline-danger">Limpiar</a>
+        </div>
+        <div class="col-1">
+            <a th:href="@{/search/salario}" class="btn btn-primary">Regresar</a>
+        </div>
+    </div>
+    </form>
     <table class="table">
         <thead>
         <!-- COMPLETAR -->
@@ -28,11 +44,11 @@
         <!-- COMPLETAR -->
 
             <tr th:each="employeesala : ${listaEmpleadosMayorsueldo}">
-                <td th:text="${employeesala.getFirstName()}"></td>
-                <td th:text="${employeesala.getLastName()}"></td>
-                <td th:text="${employeesala.getHireDate()}"></td>
-                <td th:text="${employeesala.getEnddate()}"></td>
-                <td th:text="${employeesala.getJobtitle()}"></td>
+                <td th:text="${employeesala.nombre}"></td>
+                <td th:text="${employeesala.apellido}"></td>
+                <td th:text="${#dates.format(employeesala.inicio, 'dd-MM-yyyy')}"></td>
+                <td th:text="${#dates.format(employeesala.final, 'dd-MM-yyyy')}"></td>
+                <td th:text="${employeesala.titulo}"></td>
             </tr>
         </tbody>
     </table>

@@ -6,7 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <title>Lista de Empleados</title>
+    <title>Empleados por Departamento</title>
 </head>
     <body>
         <div class="container">
@@ -21,16 +21,14 @@
                     <th>Sueldo</th>
                 </thead>
                 <tbody>
-                    <tr th:each="employeedep : ${listaEmpleadosPorDepartamento}">
-                        <td th:text="${employeedep.getEmployeeId()}"></td>
-                        <td th:text="${employeedep.getFirstName()}"></td>
-                        <td th:text="${employeedep.getLastName()}"></td>
-                        <td th:text="${employeedep.jobtitle}"></td>
-                        <td th:text="${employeedep.getSalary()}"></td>
+                    <tr th:each="employeedep : ${listaEmployees}">
+                        <td th:text="${employeedep.employeeId}"></td>
+                        <td th:text="${employeedep.firstName}"></td>
+                        <td th:text="${employeedep.lastName}"></td>
+                        <td th:text="${employeedep.job.jobtitle}"></td>
+                        <td th:text="${employeedep.salary}"></td>
+                        <td><a class="btn btn-primary" th:href="@{'/employee/edit' + '?id=' + ${employeedep.employeeId}}">Editar</a></td>
                     </tr>
-                <!-- COMPLETAR -->
-
-
                 </tbody>
             </table>
         </div>
