@@ -14,10 +14,23 @@
             <table class="table">
                 <thead>
                 <!-- COMPLETAR -->
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Cargo</th>
+                    <th>Sueldo</th>
                 </thead>
                 <tbody>
+                    <tr th:each="employeedep : ${listaEmpleadosPorDepartamento}">
+                        <td th:text="${employeedep.getEmployeeId()}"></td>
+                        <td th:text="${employeedep.getFirstName()}"></td>
+                        <td th:text="${employeedep.getLastName()}"></td>
+                        <td th:text="${employeedep.jobtitle}"></td>
+                        <td th:text="${employeedep.getSalary()}"></td>
+                    </tr>
                 <!-- COMPLETAR -->
-                </tr>
+
+
                 </tbody>
             </table>
         </div>

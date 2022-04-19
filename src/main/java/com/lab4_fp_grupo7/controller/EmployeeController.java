@@ -35,7 +35,6 @@ public class EmployeeController {
         model.addAttribute("listaEmployee", employeesRepository.findAll());
         model.addAttribute("listaJobs", jobsRepository.findAll());
         model.addAttribute("listaDepartments", departmentsRepository.findAll());
-        model.addAttribute("listaEmpleadosMayorsueldo",employeesRepository.obtenerEmpleadosMayorSueldo());
         return "employee/lista";
     }
 

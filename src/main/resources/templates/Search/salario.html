@@ -15,11 +15,17 @@
     <table class="table">
         <thead>
         <tr>
-            <!-- COMPLETAR -->
+            <th>ID</th>
+            <th>Departamento</th>
+            <th>Promedio</th>
         </tr>
         </thead>
         <tbody>
-            <!-- COMPLETAR -->
+            <tr th:each="departments : ${listaSalarioPorDepartamento}">
+                <td th:text="${departments.id}"></td>
+                <td th:text="${departments.departmentname}"></td>
+                <td th:text="${departments.}"></td>
+            </tr>
         </tbody>
     </table>
 </div>

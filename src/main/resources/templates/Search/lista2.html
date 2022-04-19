@@ -19,20 +19,20 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Fecha de inicio</th>
-                <th>Fecha de nacimiento</th>
+                <th>Fecha Fin</th>
                 <th>Puesto</th>
-                <th></th>
+
             </tr>
         </thead>
         <tbody>
         <!-- COMPLETAR -->
 
-            <tr th:each="employee : ${listaEmpleadosMayorSueldo}">
-                <td th:text="${employee.firstname}"></td>
-                <td th:text="${employee.lastname}"></td>
-                <td th:text="${employee.hiredate}"></td>
-                <td th:text="${employee.birthdate}"></td>
-                <td th:text="${employee.title}"></td>
+            <tr th:each="employeesala : ${listaEmpleadosMayorsueldo}">
+                <td th:text="${employeesala.getFirstName()}"></td>
+                <td th:text="${employeesala.getLastName()}"></td>
+                <td th:text="${employeesala.getHireDate()}"></td>
+                <td th:text="${employeesala.getEnddate()}"></td>
+                <td th:text="${employeesala.getJobtitle()}"></td>
             </tr>
         </tbody>
     </table>
