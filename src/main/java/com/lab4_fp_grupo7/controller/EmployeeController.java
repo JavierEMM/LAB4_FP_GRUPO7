@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/employee")
+@RequestMapping(value = {"/employee",""})
 public class EmployeeController {
 
     @Autowired

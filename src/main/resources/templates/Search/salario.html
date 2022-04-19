@@ -9,6 +9,7 @@
     <title>Reporte de salario máximo por departamento</title>
 </head>
 <body>
+    <nav th:replace="fragments/navbar.html :: navbar( active = 'Departamentos')"></nav>
 <div class="container">
     <h1>Reporte de salario máximo por departamento</h1>
     <a class="btn btn-primary" th:href="@{/search/salario}">Regresar</a>

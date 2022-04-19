@@ -24,12 +24,6 @@ public class SearchController{
     @Autowired
     DepartmentsRepository departmentsRepository;
 
-
-    @GetMapping(value = {"","/"})
-    public String indice(){
-        return "Search/indice";
-    }
-
     @GetMapping(value = {"/salario"})
     public String listaEmpleadosMayorSalario (Model model){
         model.addAttribute("listaEmpleadosMayorsueldo",employeesRepository.obtenerEmployeeSalario());

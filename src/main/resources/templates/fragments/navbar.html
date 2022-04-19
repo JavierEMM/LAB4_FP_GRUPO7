@@ -31,6 +31,12 @@
                         <li class="nav-item" th:classappend="${active == 'Employee'?'active':''}">
                             <a class="nav-link" th:href="@{/employee}">Employee</a>
                         </li>
+                        <li class="nav-item" th:classappend="${active == 'Salario'?'active':''}">
+                            <a class="nav-link" th:href="@{/search/salario}">Mayor Salario</a>
+                        </li>
+                        <li class="nav-item" th:classappend="${active == 'Departamentos'?'active':''}">
+                            <a class="nav-link" th:href="@{/search/departamentos}">Departamento Salarios</a>
+                        </li>
                     </ul>
                 </div>
             </div>

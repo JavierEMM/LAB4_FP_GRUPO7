@@ -9,6 +9,7 @@
     <title>Empleados con Mayor Salario</title>
 </head>
 <body>
+    <nav th:replace="fragments/navbar.html :: navbar( active = 'Salario')"></nav>
 <div class="container">
     <h1>Empleados con Mayor Salario en la Empresa</h1>
     <form method="post" th:action="@{/search/busqueda}">
